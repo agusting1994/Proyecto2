@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ModelContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="ProyectoModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="ProyectoModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="ProyectoModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="ProyectoModel.AspNetUsers" />
+    <EntitySet Name="ciudad" EntityType="ProyectoModel.ciudad" />
+    <EntitySet Name="cuentadigital" EntityType="ProyectoModel.cuentadigital" />
+    <EntitySet Name="curso_alumno" EntityType="ProyectoModel.curso_alumno" />
+    <EntitySet Name="materia" EntityType="ProyectoModel.materia" />
+    <EntitySet Name="pais" EntityType="ProyectoModel.pais" />
+    <EntitySet Name="post" EntityType="ProyectoModel.post" />
+    <EntitySet Name="post_respuesta" EntityType="ProyectoModel.post_respuesta" />
+    <EntitySet Name="profesor_materia" EntityType="ProyectoModel.profesor_materia" />
+    <EntitySet Name="provincia" EntityType="ProyectoModel.provincia" />
+    <EntitySet Name="streaming" EntityType="ProyectoModel.streaming" />
+    <EntitySet Name="sysdiagrams" EntityType="ProyectoModel.sysdiagrams" />
+    <EntitySet Name="tipo_de_curso" EntityType="ProyectoModel.tipo_de_curso" />
+    <EntitySet Name="video" EntityType="ProyectoModel.video" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ProyectoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ProyectoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_alumno_AspNetUsers" Association="ProyectoModel.FK_curso_alumno_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="curso_alumno" EntitySet="curso_alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_AspNetUsers" Association="ProyectoModel.FK_post_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="post" EntitySet="post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_respuesta_AspNetUsers" Association="ProyectoModel.FK_post_respuesta_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="post_respuesta" EntitySet="post_respuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profesor_materia_AspNetUsers" Association="ProyectoModel.FK_profesor_materia_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="profesor_materia" EntitySet="profesor_materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_streaming_AspNetUsers" Association="ProyectoModel.FK_streaming_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="streaming" EntitySet="streaming" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ciudad_provincia" Association="ProyectoModel.FK_ciudad_provincia">
+      <End Role="provincia" EntitySet="provincia" />
+      <End Role="ciudad" EntitySet="ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profesor_materia_materia" Association="ProyectoModel.FK_profesor_materia_materia">
+      <End Role="materia" EntitySet="materia" />
+      <End Role="profesor_materia" EntitySet="profesor_materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_video_materia" Association="ProyectoModel.FK_video_materia">
+      <End Role="materia" EntitySet="materia" />
+      <End Role="video" EntitySet="video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provincia_pais" Association="ProyectoModel.FK_provincia_pais">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="provincia" EntitySet="provincia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_respuesta_post" Association="ProyectoModel.FK_post_respuesta_post">
+      <End Role="post" EntitySet="post" />
+      <End Role="post_respuesta" EntitySet="post_respuesta" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="ProyectoModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="carrera" EntityType="ProyectoModel.carrera" />
+    <EntitySet Name="universidad" EntityType="ProyectoModel.universidad" />
+    <AssociationSet Name="FK_universidad_ciudad" Association="ProyectoModel.FK_universidad_ciudad">
+      <End Role="ciudad" EntitySet="ciudad" />
+      <End Role="universidad" EntitySet="universidad" />
+    </AssociationSet>
+    <EntitySet Name="academia" EntityType="ProyectoModel.academia" />
+    <EntitySet Name="curso" EntityType="ProyectoModel.curso" />
+    <AssociationSet Name="FK_cuentadigital_academia1" Association="ProyectoModel.FK_cuentadigital_academia1">
+      <End Role="academia" EntitySet="academia" />
+      <End Role="cuentadigital" EntitySet="cuentadigital" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_academia" Association="ProyectoModel.FK_curso_academia">
+      <End Role="academia" EntitySet="academia" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_carrera" Association="ProyectoModel.FK_curso_carrera">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_alumno_curso" Association="ProyectoModel.FK_curso_alumno_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="curso_alumno" EntitySet="curso_alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_tipo_de_curso" Association="ProyectoModel.FK_curso_tipo_de_curso">
+      <End Role="tipo_de_curso" EntitySet="tipo_de_curso" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_universidad" Association="ProyectoModel.FK_curso_universidad">
+      <End Role="universidad" EntitySet="universidad" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materia_curso" Association="ProyectoModel.FK_materia_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="materia" EntitySet="materia" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="ProyectoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="ProyectoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="curso_alumno" Relationship="ProyectoModel.FK_curso_alumno_AspNetUsers" FromRole="AspNetUsers" ToRole="curso_alumno" />
+    <NavigationProperty Name="post" Relationship="ProyectoModel.FK_post_AspNetUsers" FromRole="AspNetUsers" ToRole="post" />
+    <NavigationProperty Name="post_respuesta" Relationship="ProyectoModel.FK_post_respuesta_AspNetUsers" FromRole="AspNetUsers" ToRole="post_respuesta" />
+    <NavigationProperty Name="profesor_materia" Relationship="ProyectoModel.FK_profesor_materia_AspNetUsers" FromRole="AspNetUsers" ToRole="profesor_materia" />
+    <NavigationProperty Name="streaming" Relationship="ProyectoModel.FK_streaming_AspNetUsers" FromRole="AspNetUsers" ToRole="streaming" />
+    <NavigationProperty Name="AspNetRoles" Relationship="ProyectoModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idprovincia" Type="Int32" />
+    <NavigationProperty Name="provincia" Relationship="ProyectoModel.FK_ciudad_provincia" FromRole="ciudad" ToRole="provincia" />
+    <NavigationProperty Name="universidad" Relationship="ProyectoModel.FK_universidad_ciudad" FromRole="ciudad" ToRole="universidad" />
+  </EntityType>
+  <EntityType Name="cuentadigital">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idacademia" Type="Int32" Nullable="false" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="academia" Relationship="ProyectoModel.FK_cuentadigital_academia1" FromRole="cuentadigital" ToRole="academia" />
+  </EntityType>
+  <EntityType Name="curso_alumno">
+    <Key>
+      <PropertyRef Name="idcurso" />
+      <PropertyRef Name="idalumno" />
+    </Key>
+    <Property Name="idcurso" Type="Int32" Nullable="false" />
+    <Property Name="idalumno" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_inscripcion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_curso_alumno_AspNetUsers" FromRole="curso_alumno" ToRole="AspNetUsers" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_curso_alumno_curso" FromRole="curso_alumno" ToRole="curso" />
+  </EntityType>
+  <EntityType Name="materia">
+    <Key>
+      <PropertyRef Name="idmateria" />
+    </Key>
+    <Property Name="idmateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcurso" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="abreviatura" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="profesor_materia" Relationship="ProyectoModel.FK_profesor_materia_materia" FromRole="materia" ToRole="profesor_materia" />
+    <NavigationProperty Name="video" Relationship="ProyectoModel.FK_video_materia" FromRole="materia" ToRole="video" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_materia_curso" FromRole="materia" ToRole="curso" />
+  </EntityType>
+  <EntityType Name="pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="provincia" Relationship="ProyectoModel.FK_provincia_pais" FromRole="pais" ToRole="provincia" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idusuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_post_AspNetUsers" FromRole="post" ToRole="AspNetUsers" />
+    <NavigationProperty Name="post_respuesta" Relationship="ProyectoModel.FK_post_respuesta_post" FromRole="post" ToRole="post_respuesta" />
+  </EntityType>
+  <EntityType Name="post_respuesta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idpost" Type="Int32" Nullable="false" />
+    <Property Name="idusuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_post_respuesta_AspNetUsers" FromRole="post_respuesta" ToRole="AspNetUsers" />
+    <NavigationProperty Name="post" Relationship="ProyectoModel.FK_post_respuesta_post" FromRole="post_respuesta" ToRole="post" />
+  </EntityType>
+  <EntityType Name="profesor_materia">
+    <Key>
+      <PropertyRef Name="idprofesor" />
+    </Key>
+    <Property Name="idprofesor" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="idmateria" Type="Int32" Nullable="false" />
+    <Property Name="fecha_alta" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_profesor_materia_AspNetUsers" FromRole="profesor_materia" ToRole="AspNetUsers" />
+    <NavigationProperty Name="materia" Relationship="ProyectoModel.FK_profesor_materia_materia" FromRole="profesor_materia" ToRole="materia" />
+  </EntityType>
+  <EntityType Name="provincia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idpais" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ciudad" Relationship="ProyectoModel.FK_ciudad_provincia" FromRole="provincia" ToRole="ciudad" />
+    <NavigationProperty Name="pais" Relationship="ProyectoModel.FK_provincia_pais" FromRole="provincia" ToRole="pais" />
+  </EntityType>
+  <EntityType Name="streaming">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idprofesor" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ProyectoModel.FK_streaming_AspNetUsers" FromRole="streaming" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tipo_de_curso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_curso_tipo_de_curso" FromRole="tipo_de_curso" ToRole="curso" />
+  </EntityType>
+  <EntityType Name="video">
+    <Key>
+      <PropertyRef Name="idvideo" />
+    </Key>
+    <Property Name="idvideo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="link" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="idmateria" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="materia" Relationship="ProyectoModel.FK_video_materia" FromRole="video" ToRole="materia" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ProyectoModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ProyectoModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_alumno_AspNetUsers">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ProyectoModel.curso_alumno" Role="curso_alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="curso_alumno">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_AspNetUsers">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ProyectoModel.post" Role="post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_respuesta_AspNetUsers">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ProyectoModel.post_respuesta" Role="post_respuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post_respuesta">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profesor_materia_AspNetUsers">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ProyectoModel.profesor_materia" Role="profesor_materia" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="profesor_materia">
+        <PropertyRef Name="idprofesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_streaming_AspNetUsers">
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ProyectoModel.streaming" Role="streaming" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="streaming">
+        <PropertyRef Name="idprofesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ciudad_provincia">
+    <End Type="ProyectoModel.provincia" Role="provincia" Multiplicity="0..1" />
+    <End Type="ProyectoModel.ciudad" Role="ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ciudad">
+        <PropertyRef Name="idprovincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profesor_materia_materia">
+    <End Type="ProyectoModel.materia" Role="materia" Multiplicity="1" />
+    <End Type="ProyectoModel.profesor_materia" Role="profesor_materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="materia">
+        <PropertyRef Name="idmateria" />
+      </Principal>
+      <Dependent Role="profesor_materia">
+        <PropertyRef Name="idmateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_video_materia">
+    <End Type="ProyectoModel.materia" Role="materia" Multiplicity="1" />
+    <End Type="ProyectoModel.video" Role="video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="materia">
+        <PropertyRef Name="idmateria" />
+      </Principal>
+      <Dependent Role="video">
+        <PropertyRef Name="idmateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provincia_pais">
+    <End Type="ProyectoModel.pais" Role="pais" Multiplicity="1" />
+    <End Type="ProyectoModel.provincia" Role="provincia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provincia">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_respuesta_post">
+    <End Type="ProyectoModel.post" Role="post" Multiplicity="1" />
+    <End Type="ProyectoModel.post_respuesta" Role="post_respuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="post_respuesta">
+        <PropertyRef Name="idpost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="ProyectoModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="ProyectoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="iduniversidad" Type="Int32" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_curso_carrera" FromRole="carrera" ToRole="curso" />
+  </EntityType>
+  <EntityType Name="universidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idciudad" Type="Int32" />
+    <Property Name="logolink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ciudad" Relationship="ProyectoModel.FK_universidad_ciudad" FromRole="universidad" ToRole="ciudad" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_curso_universidad" FromRole="universidad" ToRole="curso" />
+  </EntityType>
+  <Association Name="FK_universidad_ciudad">
+    <End Type="ProyectoModel.ciudad" Role="ciudad" Multiplicity="0..1" />
+    <End Type="ProyectoModel.universidad" Role="universidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="universidad">
+        <PropertyRef Name="idciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="academia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idciudad" Type="Int32" Nullable="false" />
+    <Property Name="idprovincia" Type="Int32" Nullable="false" />
+    <Property Name="linklogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cuentadigital" Relationship="ProyectoModel.FK_cuentadigital_academia1" FromRole="academia" ToRole="cuentadigital" />
+    <NavigationProperty Name="curso" Relationship="ProyectoModel.FK_curso_academia" FromRole="academia" ToRole="curso" />
+  </EntityType>
+  <EntityType Name="curso">
+    <Key>
+      <PropertyRef Name="idcurso" />
+    </Key>
+    <Property Name="idcurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idacademia" Type="Int32" Nullable="false" />
+    <Property Name="iduniversidad" Type="Int32" Nullable="false" />
+    <Property Name="idtipodecurso" Type="Int32" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+    <Property Name="idcarrera" Type="Int32" />
+    <NavigationProperty Name="academia" Relationship="ProyectoModel.FK_curso_academia" FromRole="curso" ToRole="academia" />
+    <NavigationProperty Name="carrera" Relationship="ProyectoModel.FK_curso_carrera" FromRole="curso" ToRole="carrera" />
+    <NavigationProperty Name="curso_alumno" Relationship="ProyectoModel.FK_curso_alumno_curso" FromRole="curso" ToRole="curso_alumno" />
+    <NavigationProperty Name="tipo_de_curso" Relationship="ProyectoModel.FK_curso_tipo_de_curso" FromRole="curso" ToRole="tipo_de_curso" />
+    <NavigationProperty Name="universidad" Relationship="ProyectoModel.FK_curso_universidad" FromRole="curso" ToRole="universidad" />
+    <NavigationProperty Name="materia" Relationship="ProyectoModel.FK_materia_curso" FromRole="curso" ToRole="materia" />
+  </EntityType>
+  <Association Name="FK_cuentadigital_academia1">
+    <End Type="ProyectoModel.academia" Role="academia" Multiplicity="1" />
+    <End Type="ProyectoModel.cuentadigital" Role="cuentadigital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="academia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuentadigital">
+        <PropertyRef Name="idacademia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_academia">
+    <End Type="ProyectoModel.academia" Role="academia" Multiplicity="1" />
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="academia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idacademia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_carrera">
+    <End Type="ProyectoModel.carrera" Role="carrera" Multiplicity="0..1" />
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idcarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_alumno_curso">
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="1" />
+    <End Type="ProyectoModel.curso_alumno" Role="curso_alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="curso_alumno">
+        <PropertyRef Name="idcurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_tipo_de_curso">
+    <End Type="ProyectoModel.tipo_de_curso" Role="tipo_de_curso" Multiplicity="0..1" />
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_de_curso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idtipodecurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_universidad">
+    <End Type="ProyectoModel.universidad" Role="universidad" Multiplicity="1" />
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="universidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="iduniversidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materia_curso">
+    <End Type="ProyectoModel.curso" Role="curso" Multiplicity="1" />
+    <End Type="ProyectoModel.materia" Role="materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="materia">
+        <PropertyRef Name="idcurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

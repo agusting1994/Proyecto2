@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebApplication4.Datos.curso>
+
+@{
+    ViewBag.Title = "Informacion";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<link href="~/Content/Home/ventas_estilos.css" rel="stylesheet" />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="card">
+                <a class="img-card" href="#">
+                    <img src="http://www.ucc.edu.ar/archivos/imagenes/ICDA/logo-ICDA-nvo-web-OK.png" />
+                </a>
+                <div class="card-read-more_compra">
+                    <a class="btn btn-link btn-block" href="#">
+                        COMPRAR AHORA
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <h3 class="informacion_titlo">Nombre del curso</h3>
+            <p>En este curso, aprenderás a interactuar con fluidez en conversaciones de contextos laborales, académicos o culturales y adquirirás recursos lingüísticos y comunicativos que te ayudarán a desenvolverte de manera eficaz en tus situaciones comunicativas diarias.
+                En este curso, aprenderás a interactuar con fluidez en conversaciones de contextos laborales, académicos o culturales y adquirirás recursos lingüísticos y comunicativos que te ayudarán a desenvolverte de manera eficaz en tus situaciones comunicativas diarias</p>
+
+            </div>
+        </div>
+    </div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idcurso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idacademia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iduniversidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idtipodecurso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idcarrera)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idcurso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idacademia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iduniversidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idtipodecurso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_inicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idcarrera)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

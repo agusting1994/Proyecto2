@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApplication4.Models
+@using Microsoft.AspNet.Identity.EntityFramework;
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "" }))
+    {
+    @Html.AntiForgeryToken()
+      <span class="hidden-xs">
+       <img src="~/img/userr.jpg" width="30" class="img-circle" alt="User Image">
+      </span>
+
+        var id = User.Identity.GetUserId();
+        using (ApplicationDbContext db = new ApplicationDbContext())
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var usuario = userManager.FindById(id);
+            @Html.ActionLink("Hola " + usuario.Nombre.ToString() +"!", "", "", routeValues: null, htmlAttributes: new { title = "Manage", id = "usu-nombre", href = "javascript:void(0)" })
+        }
+
+     <div class="" id="login-Content">
+            <ul>
+                <li>
+                    <span class="glyphicon glyphicon-cog"></span>
+                    <a href="#"> Configuración</a>
+                </li>
+                <li>
+                    <span class="glyphicon glyphicon-off"></span><a href="javascript:document.getElementById('logoutForm').submit()"> Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    }
+}
+else 
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

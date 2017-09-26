@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75e5db36a2214d41bfc2210c599110ee" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="ProyectoModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="ProyectoModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="19.125" />
+        <EntityTypeShape EntityType="ProyectoModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="ProyectoModel.AspNetUsers" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="ProyectoModel.ciudad" Width="1.5" PointX="1.5" PointY="25" />
+        <EntityTypeShape EntityType="ProyectoModel.cuentadigital" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="ProyectoModel.curso_alumno" Width="1.5" PointX="5.25" PointY="10.875" />
+        <EntityTypeShape EntityType="ProyectoModel.materia" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ProyectoModel.pais" Width="1.5" PointX="1.5" PointY="31.125" />
+        <EntityTypeShape EntityType="ProyectoModel.post" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="ProyectoModel.post_respuesta" Width="1.5" PointX="7.5" PointY="7.375" />
+        <EntityTypeShape EntityType="ProyectoModel.profesor_materia" Width="1.5" PointX="8.25" PointY="11" />
+        <EntityTypeShape EntityType="ProyectoModel.provincia" Width="1.5" PointX="1.5" PointY="28" />
+        <EntityTypeShape EntityType="ProyectoModel.streaming" Width="1.5" PointX="5.25" PointY="15.75" />
+        <EntityTypeShape EntityType="ProyectoModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ProyectoModel.tipo_de_curso" Width="1.5" PointX="0.75" PointY="19.625" />
+        <EntityTypeShape EntityType="ProyectoModel.video" Width="1.5" PointX="8.25" PointY="1" />
+        <AssociationConnector Association="ProyectoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ProyectoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_alumno_AspNetUsers" />
+        <AssociationConnector Association="ProyectoModel.FK_post_AspNetUsers" />
+        <AssociationConnector Association="ProyectoModel.FK_post_respuesta_AspNetUsers" />
+        <AssociationConnector Association="ProyectoModel.FK_profesor_materia_AspNetUsers" />
+        <AssociationConnector Association="ProyectoModel.FK_streaming_AspNetUsers" />
+        <AssociationConnector Association="ProyectoModel.FK_ciudad_provincia" />
+        <AssociationConnector Association="ProyectoModel.FK_profesor_materia_materia" />
+        <AssociationConnector Association="ProyectoModel.FK_video_materia" />
+        <AssociationConnector Association="ProyectoModel.FK_provincia_pais" />
+        <AssociationConnector Association="ProyectoModel.FK_post_respuesta_post" />
+        <AssociationConnector Association="ProyectoModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ProyectoModel.carrera" Width="1.5" PointX="10.375" PointY="6.875" />
+        <EntityTypeShape EntityType="ProyectoModel.universidad" Width="1.5" PointX="3.75" PointY="24.875" />
+        <AssociationConnector Association="ProyectoModel.FK_universidad_ciudad" />
+        <EntityTypeShape EntityType="ProyectoModel.academia" Width="1.5" PointX="0.75" PointY="13.375" />
+        <EntityTypeShape EntityType="ProyectoModel.curso" Width="1.5" PointX="12.625" PointY="14.875" />
+        <AssociationConnector Association="ProyectoModel.FK_cuentadigital_academia1" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_academia" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_carrera" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_alumno_curso" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_tipo_de_curso" />
+        <AssociationConnector Association="ProyectoModel.FK_curso_universidad" />
+        <AssociationConnector Association="ProyectoModel.FK_materia_curso" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

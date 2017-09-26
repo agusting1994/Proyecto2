@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="academia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="idciudad" Type="int" Nullable="false" />
+    <Property Name="idprovincia" Type="int" Nullable="false" />
+    <Property Name="linklogo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="imagen" Type="image" />
+    <Property Name="iduniversidad" Type="int" />
+  </EntityType>
+  <EntityType Name="ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idprovincia" Type="int" />
+  </EntityType>
+  <EntityType Name="cuentadigital">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idacademia" Type="int" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="curso">
+    <Key>
+      <PropertyRef Name="idcurso" />
+    </Key>
+    <Property Name="idcurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idacademia" Type="int" Nullable="false" />
+    <Property Name="iduniversidad" Type="int" Nullable="false" />
+    <Property Name="idtipodecurso" Type="int" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="precio" Type="money" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" />
+    <Property Name="fecha_fin" Type="date" />
+    <Property Name="idcarrera" Type="int" />
+  </EntityType>
+  <EntityType Name="curso_alumno">
+    <Key>
+      <PropertyRef Name="idcurso" />
+      <PropertyRef Name="idalumno" />
+    </Key>
+    <Property Name="idcurso" Type="int" Nullable="false" />
+    <Property Name="idalumno" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="fecha_inscripcion" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="materia">
+    <Key>
+      <PropertyRef Name="idmateria" />
+    </Key>
+    <Property Name="idmateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idcurso" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviatura" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mensaje" Type="nvarchar(max)" />
+    <Property Name="fecha_creacion" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="post_respuesta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idpost" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="mensaje" Type="nvarchar(max)" />
+    <Property Name="fecha_creacion" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="profesor_materia">
+    <Key>
+      <PropertyRef Name="idprofesor" />
+    </Key>
+    <Property Name="idprofesor" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="idmateria" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="provincia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idpais" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="streaming">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idprofesor" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="link" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fecha_inicio" Type="smalldatetime" Nullable="false" />
+    <Property Name="fecha_fin" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipo_de_curso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="universidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idciudad" Type="int" />
+    <Property Name="logolink" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="video">
+    <Key>
+      <PropertyRef Name="idvideo" />
+    </Key>
+    <Property Name="idvideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="link" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="idmateria" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_ciudad_provincia">
+    <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
+    <End Role="ciudad" Type="Self.ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ciudad">
+        <PropertyRef Name="idprovincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuentadigital_academia1">
+    <End Role="academia" Type="Self.academia" Multiplicity="1" />
+    <End Role="cuentadigital" Type="Self.cuentadigital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="academia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuentadigital">
+        <PropertyRef Name="idacademia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_academia">
+    <End Role="academia" Type="Self.academia" Multiplicity="1" />
+    <End Role="curso" Type="Self.curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="academia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idacademia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_alumno_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="curso_alumno" Type="Self.curso_alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="curso_alumno">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_alumno_curso">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="curso_alumno" Type="Self.curso_alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="curso_alumno">
+        <PropertyRef Name="idcurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_carrera">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="curso" Type="Self.curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idcarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_tipo_de_curso">
+    <End Role="tipo_de_curso" Type="Self.tipo_de_curso" Multiplicity="0..1" />
+    <End Role="curso" Type="Self.curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_de_curso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="idtipodecurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_universidad">
+    <End Role="universidad" Type="Self.universidad" Multiplicity="1" />
+    <End Role="curso" Type="Self.curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="universidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="iduniversidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materia_curso">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="materia" Type="Self.materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="materia">
+        <PropertyRef Name="idcurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="post" Type="Self.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_respuesta_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="post_respuesta" Type="Self.post_respuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post_respuesta">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_respuesta_post">
+    <End Role="post" Type="Self.post" Multiplicity="1" />
+    <End Role="post_respuesta" Type="Self.post_respuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="post_respuesta">
+        <PropertyRef Name="idpost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profesor_materia_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="profesor_materia" Type="Self.profesor_materia" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="profesor_materia">
+        <PropertyRef Name="idprofesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profesor_materia_materia">
+    <End Role="materia" Type="Self.materia" Multiplicity="1" />
+    <End Role="profesor_materia" Type="Self.profesor_materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="materia">
+        <PropertyRef Name="idmateria" />
+      </Principal>
+      <Dependent Role="profesor_materia">
+        <PropertyRef Name="idmateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provincia_pais">
+    <End Role="pais" Type="Self.pais" Multiplicity="1" />
+    <End Role="provincia" Type="Self.provincia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provincia">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_streaming_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="streaming" Type="Self.streaming" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="streaming">
+        <PropertyRef Name="idprofesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_universidad_ciudad">
+    <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+    <End Role="universidad" Type="Self.universidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="universidad">
+        <PropertyRef Name="idciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_video_materia">
+    <End Role="materia" Type="Self.materia" Multiplicity="1" />
+    <End Role="video" Type="Self.video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="materia">
+        <PropertyRef Name="idmateria" />
+      </Principal>
+      <Dependent Role="video">
+        <PropertyRef Name="idmateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoModelStoreContainer">
+    <EntitySet Name="academia" EntityType="Self.academia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ciudad" EntityType="Self.ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuentadigital" EntityType="Self.cuentadigital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso" EntityType="Self.curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso_alumno" EntityType="Self.curso_alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="materia" EntityType="Self.materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pais" EntityType="Self.pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="post_respuesta" EntityType="Self.post_respuesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profesor_materia" EntityType="Self.profesor_materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="streaming" EntityType="Self.streaming" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_de_curso" EntityType="Self.tipo_de_curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="universidad" EntityType="Self.universidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="video" EntityType="Self.video" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ciudad_provincia" Association="Self.FK_ciudad_provincia">
+      <End Role="provincia" EntitySet="provincia" />
+      <End Role="ciudad" EntitySet="ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuentadigital_academia1" Association="Self.FK_cuentadigital_academia1">
+      <End Role="academia" EntitySet="academia" />
+      <End Role="cuentadigital" EntitySet="cuentadigital" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_academia" Association="Self.FK_curso_academia">
+      <End Role="academia" EntitySet="academia" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_alumno_AspNetUsers" Association="Self.FK_curso_alumno_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="curso_alumno" EntitySet="curso_alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_alumno_curso" Association="Self.FK_curso_alumno_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="curso_alumno" EntitySet="curso_alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_carrera" Association="Self.FK_curso_carrera">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_tipo_de_curso" Association="Self.FK_curso_tipo_de_curso">
+      <End Role="tipo_de_curso" EntitySet="tipo_de_curso" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_universidad" Association="Self.FK_curso_universidad">
+      <End Role="universidad" EntitySet="universidad" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materia_curso" Association="Self.FK_materia_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="materia" EntitySet="materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_AspNetUsers" Association="Self.FK_post_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="post" EntitySet="post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_respuesta_AspNetUsers" Association="Self.FK_post_respuesta_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="post_respuesta" EntitySet="post_respuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_respuesta_post" Association="Self.FK_post_respuesta_post">
+      <End Role="post" EntitySet="post" />
+      <End Role="post_respuesta" EntitySet="post_respuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profesor_materia_AspNetUsers" Association="Self.FK_profesor_materia_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="profesor_materia" EntitySet="profesor_materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profesor_materia_materia" Association="Self.FK_profesor_materia_materia">
+      <End Role="materia" EntitySet="materia" />
+      <End Role="profesor_materia" EntitySet="profesor_materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provincia_pais" Association="Self.FK_provincia_pais">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="provincia" EntitySet="provincia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_streaming_AspNetUsers" Association="Self.FK_streaming_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="streaming" EntitySet="streaming" />
+    </AssociationSet>
+    <AssociationSet Name="FK_universidad_ciudad" Association="Self.FK_universidad_ciudad">
+      <End Role="ciudad" EntitySet="ciudad" />
+      <End Role="universidad" EntitySet="universidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_video_materia" Association="Self.FK_video_materia">
+      <End Role="materia" EntitySet="materia" />
+      <End Role="video" EntitySet="video" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

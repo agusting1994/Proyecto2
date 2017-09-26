@@ -1,0 +1,123 @@
+﻿@model IEnumerable<WebApplication4.Models.Cursos>
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAcademia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAcademia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+               $@Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+
+                <div class="container">
+                    <br>
+                    <a href="#ventana1_@(item.Id)" class="btn btn-primary" data-toggle="modal">Boton 1</a>
+                    <div class="modal fade" id="ventana1_@(item.Id)">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <!-- TITULO DEL MODAL -->
+                                <div class="modal-header"><h4>Encabezado de la ventana</h4></div>
+                                <!-- CONTENIDO DEL MODAL -->
+                                <div class="modal-body">
+                                    <FORM target=_blank action="https://www.cuentadigital.com/api.php" METHOD="get">
+                                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="table1">
+                                            <input type="hidden" value="617358" name="id">
+                                            <input type="hidden" value="7" name="venc">
+                                            <tr>
+                                                <td><input type="hidden" name="codigo" value="222"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="180">Precio:</td>
+                                                <td><input readonly="readonly" value="@(item.Precio)" name="precio"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="180">E-Mail:</td>
+                                                <td><input type="text" name="hacia"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="180">Concepto:</td>
+                                                <td> <label name="precio">@item.Nombre</label></td>
+                                            </tr>
+                                           
+                                            <tr>
+                                                <td width="180">
+                                                    <div class="modal-footer">
+                                                        <input type="submit" value="Comprar">
+
+                                                    </div>
+        </td>
+                                                <td> </td>
+                                            </tr>
+                                        </table>
+                                    </FORM>
+
+                                </div>
+                                @*<div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                                    <button type="button" class="btn btn-info">Comprar</button>
+                                </div>*@
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+</td>
+        </tr>
+    }
+    
+    </table>
+
+
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
